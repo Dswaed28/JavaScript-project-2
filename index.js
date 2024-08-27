@@ -94,23 +94,15 @@ function addContact(contact) {
       <span class="phone-number">${contact.number}</span>
     </div>
   `;
-  list.insertBefore(li, list.firstChild);; // הוספת ה-li לרשימת אנשי הקשר ב-DOM
+  list.appendChild(li); // הוספת ה-li לרשימת אנשי הקשר ב-DOM
 }
 
 // פונקציה לאכלוס ראשוני של רשימת אנשי הקשר
 function populateContacts() {
-  const list = document.getElementById("contacts-list"); // Select the contacts list in the DOM
-
-  // Sort the contacts array by name in ascending order
-  contacts.sort((a, b) => a.name.localeCompare(b.name));
-
-  // Add each contact to the DOM
-  contacts.forEach((contact) => addContact(contact));
+  const list = document.getElementById("contacts-list"); // בחירת רשימת אנשי הקשר ב-DOM
+  contacts.forEach((contact) => addContact(contact)); // הוספת כל איש קשר מהרשימה ל-DOM
 }
-
-// Initial population of contacts
 populateContacts();
-
 
 // פונקציה לעריכת פרטי איש קשר
 function editContact(number) {
